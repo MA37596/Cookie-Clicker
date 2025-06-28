@@ -8,21 +8,82 @@
     <script src="assets/script.js" defer></script>
 </head>
 <body>
-    <div class="game-container">
-        <h1>🍪 Cookie Clicker</h1>
-        
-        <div class="cookie-section">
-            <div class="cookie-counter">
-                <span id="cookie-count">0</span> cookies
+    <div class="game-layout">
+        <!-- Main Game Area -->
+        <div class="game-container">
+            <h1>🍪 Cookie Clicker</h1>
+            
+            <div class="cookie-section">
+                <div class="cookie-counter">
+                    <span id="cookie-count">0</span> cookies
+                </div>
+                
+                <button id="cookiebutton" class="cookie-button">
+                    🍪
+                </button>
             </div>
             
-            <button id="cookiebutton" class="cookie-button">
-                🍪
-            </button>
+            <div class="stats">
+                <p>Cookies per second: <span id="cps">0</span></p>
+            </div>
         </div>
-        
-        <div class="stats">
-            <p>Cookies per second: <span id="cps">0</span></p>
+
+        <!-- Sidebar Shop -->
+        <div class="sidebar">
+            <h2>🛒 Shop</h2>
+            <div class="shop-items">
+                <div class="shop-item" id="cursor-upgrade">
+                    <div class="item-info">
+                        <span class="item-icon">👆</span>
+                        <div class="item-details">
+                            <h3>Cursor</h3>
+                            <p>Automatically clicks the cookie every 10 seconds</p>
+                            <p class="item-cost">Cost: <span id="cursor-cost">15</span> cookies</p>
+                            <p class="item-owned">Owned: <span id="cursor-owned">0</span></p>
+                        </div>
+                    </div>
+                    <button class="buy-button" onclick="buyUpgrade('cursor')">Buy</button>
+                </div>
+
+                <div class="shop-item" id="grandma-upgrade">
+                    <div class="item-info">
+                        <span class="item-icon">👵</span>
+                        <div class="item-details">
+                            <h3>Grandma</h3>
+                            <p>A nice grandma to bake more cookies</p>
+                            <p class="item-cost">Cost: <span id="grandma-cost">100</span> cookies</p>
+                            <p class="item-owned">Owned: <span id="grandma-owned">0</span></p>
+                        </div>
+                    </div>
+                    <button class="buy-button" onclick="buyUpgrade('grandma')">Buy</button>
+                </div>
+
+                <div class="shop-item" id="farm-upgrade">
+                    <div class="item-info">
+                        <span class="item-icon">🌾</span>
+                        <div class="item-details">
+                            <h3>Farm</h3>
+                            <p>Grows cookie plants from cookie seeds</p>
+                            <p class="item-cost">Cost: <span id="farm-cost">1100</span> cookies</p>
+                            <p class="item-owned">Owned: <span id="farm-owned">0</span></p>
+                        </div>
+                    </div>
+                    <button class="buy-button" onclick="buyUpgrade('farm')">Buy</button>
+                </div>
+
+                <div class="shop-item" id="mine-upgrade">
+                    <div class="item-info">
+                        <span class="item-icon">⛏️</span>
+                        <div class="item-details">
+                            <h3>Mine</h3>
+                            <p>Mines out delicious chocolate chips</p>
+                            <p class="item-cost">Cost: <span id="mine-cost">12000</span> cookies</p>
+                            <p class="item-owned">Owned: <span id="mine-owned">0</span></p>
+                        </div>
+                    </div>
+                    <button class="buy-button" onclick="buyUpgrade('mine')">Buy</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>

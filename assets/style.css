@@ -8,10 +8,17 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #333;
+    overflow-x: auto;
+}
+
+.game-layout {
+    display: flex;
+    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .game-container {
@@ -20,8 +27,110 @@ body {
     padding: 40px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     text-align: center;
+    flex: 1;
     max-width: 500px;
-    width: 90%;
+    height: fit-content;
+}
+
+.sidebar {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    height: fit-content;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    color: #8B4513;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #DEB887;
+    padding-bottom: 10px;
+}
+
+.shop-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.shop-item {
+    background: #FFF8DC;
+    border: 2px solid #DEB887;
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.shop-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: #D2691E;
+}
+
+.item-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.item-icon {
+    font-size: 2rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.item-details h3 {
+    color: #8B4513;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.item-details p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+    line-height: 1.3;
+}
+
+.item-cost, .item-owned {
+    font-weight: bold;
+    color: #D2691E !important;
+}
+
+.buy-button {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.buy-button:hover {
+    background: linear-gradient(135deg, #45a049, #4CAF50);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.buy-button:active {
+    transform: translateY(0);
+}
+
+.buy-button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 h1 {
@@ -94,10 +203,27 @@ h1 {
 }
 
 /* Responsive design */
+@media (max-width: 1200px) {
+    .game-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .sidebar {
+        width: 100%;
+        max-width: 500px;
+        order: -1;
+    }
+}
+
 @media (max-width: 600px) {
-    .game-container {
+    .game-layout {
+        padding: 10px;
+    }
+    
+    .game-container, .sidebar {
         padding: 20px;
-        margin: 20px;
+        margin: 10px 0;
     }
     
     h1 {
@@ -116,5 +242,14 @@ h1 {
     
     #cookie-count {
         font-size: 1.5rem;
+    }
+    
+    .item-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .item-icon {
+        margin-bottom: 10px;
     }
 }
